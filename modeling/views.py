@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from modeling.models import Creature
 def home_page(request):
-    return HttpResponse("<html><title>EOL homepage</title></html>")
+    return render(request, "search.html")
 
 def add_to_db(request):
     with open("rewrite.txt") as f:
@@ -26,4 +26,18 @@ def add_to_db(request):
             except:
                 print("duplicate :", c_id)
         f1.close()
-        return HttpResponse("<html><title>EOL homepage</title></html>")
+        return HttpResponse("<html><title>EOL homepage</title><body>insert complete"\
+                            "</body></html>")
+
+def re_write(request):
+    f1 = open("rewrite.txt", "w")
+    with open("baseLine.txt") as f:
+        for i in f:
+            f1.write(i.strip()+'\n')
+    f1.close()
+    return HttpResponse("<html><title>EOL homepage</title><body>"\
+                        "rewrite complete</body></html>")
+
+def results(request):
+    creature = Creature.objects.get(c_id=request.POST['item_text'])
+    return render(request, "results.html", {"creature":creature})
