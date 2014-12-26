@@ -1,7 +1,7 @@
 from django.db import models
 
 class Creature(models.Model):
-    c_id = models.TextField(default="")
+    c_id = models.TextField(default="", primary_key=True)
     s_name = models.TextField(default="")
     c_name = models.TextField(default="")
     category = models.TextField(default="")
