@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from modeling.models import Creature
+from django.db.models import Q
+
 def home_page(request):
     return render(request, "search.html")
 
@@ -40,4 +42,16 @@ def re_write(request):
 
 def results(request):
     creature = Creature.objects.get(c_id=request.POST['item_text'])
-    return render(request, "results.html", {"creature":creature})
+    return render(request, "results.html", {"Creature":creature})
+
+def location(request):
+    return render(request, "slice.html")
+
+def location_detail(request):
+    loc = request.POST['locations'].split(',')[:-1]
+    creature = Creature.objects.filter(Q(location__icontains="9999"))
+    for i in loc:
+        print(Creature.objects.filter(location__icontains=i).count())
+        creature = creature|Creature.objects.filter(location__icontains=i)
+        # Use | to combine two QuerySets
+    return render(request, "location-detail.html", {"Creature":creature})
