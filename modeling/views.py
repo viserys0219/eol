@@ -41,8 +41,8 @@ def re_write(request):
                         "rewrite complete</body></html>")
 
 def results(request):
-    creature = Creature.objects.get(c_id=request.POST['item_text'])
-    return render(request, "results.html", {"Creature":creature})
+    creature = Creature.objects.filter(c_id=request.POST['item_text'])
+    return render(request, "location-detail.html", {"Creature":creature})
 
 def location(request):
     return render(request, "slice.html")

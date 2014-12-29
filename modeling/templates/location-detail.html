@@ -1,29 +1,32 @@
 ﻿<html>
 	<title>EOL homepage</title>
 	<body>
-		<table>
-			{% for creature in Creature %}
+		{% for creature in Creature %}
+		<table style="border:5px #cccccc solid;" border="1">
+			
 			<tr>
-			    <td>EOL編號: </td>
-			    <td>{{ creature.c_id}}</td>
+			    <td width="100">EOL編號: </td>
+			    <td width="500">{{ creature.c_id}}</td>
 			</tr>
 			<tr>
-			    <td>學名: </td>
-			    <td>{{ creature.s_name}}</td>
+			    <td width="50">學名: </td>
+			    <td width="500">{{ creature.s_name}}</td>
 			</tr>
 			<tr>
-			    <td>一般名稱: </td>
-			    <td>{{ creature.c_name}}</td>
+			    <td width="50">一般名稱: </td>
+			    <td width="500">{{ creature.c_name}}</td>
+			</tr>
 			<!--
-			</tr>
 			<tr>
 			    <td>生物分類階層: </td>
 			    <td>{{ creature.category}}</td>
 			</tr>
+			--!>
 			<tr>
 			    <td>IUCN保育等級: </td>
 			    <td>{{ creature.iucn_level}}</td>
 			</tr>
+			<!--
 			<tr>
 			    <td>保育等級等地: </td>
 			    <td>{{ creature.level}}</td>
@@ -41,7 +44,8 @@
 			    <td>{{ creature.location_style}}</td>
 			</tr>
 			--!>
-			{% endfor %}
+			
 		</table>
+		{% endfor %}
 	</body>
 </html>
