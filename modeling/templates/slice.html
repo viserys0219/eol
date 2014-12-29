@@ -28,7 +28,7 @@
 			Y:<input type="text" id="y" size="4">
 		<img src="{% static "images/WorldMap.png" %}" id="puzzleImg" />
 		<form id="form1" method="POST" action="/location_detail">
-			<input name="locations" id="locations" value="">
+			<input type="hidden" name="locations" id="locations" value="">
 			{% csrf_token %}
 		</form>
 	</body>

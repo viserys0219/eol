@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     url(r'^results$', 'modeling.views.results', name="results"),
     url(r'^location/$', 'modeling.views.location', name='lcation'),
     url(r'^location_detail$', 'modeling.views.location_detail', name='location_detail'),
+    url(r'^location_detail/(\d{1,3})/$', 'modeling.views.page', name='page'),    
     # Examples:
     # url(r'^$', 'eol.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),

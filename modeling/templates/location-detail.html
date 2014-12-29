@@ -1,6 +1,7 @@
 ﻿<html>
 	<title>EOL homepage</title>
 	<body>
+
 		{% for creature in Creature %}
 		<table style="border:5px #cccccc solid;" border="1">
 			
@@ -47,5 +48,18 @@
 			
 		</table>
 		{% endfor %}
+		<table>
+			<tr>
+			{% for x in pages %}
+				{% if current == x%}
+				<td><b>{{ x }}</b></td>
+				{% endif%}
+				{% if current != x%}
+				<td><a href="/location_detail/{{ x }}/?locations={{loc}}">{{ x }}</td>
+				{% endif %}
+			{% endfor %}
+			</tr>
+		</table>
+
 	</body>
 </html>
