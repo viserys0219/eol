@@ -57,7 +57,7 @@ for(var i=0;i<puzzleX;i++){
 
 function record(){
 	
-	var mx = x.value;
+	var mx = x.value - window.pageYOffset;
 	var my = y.value;
 	
 	var px = Math.ceil((mx-8)/16);  //¤Gºû°}¦Cªºx

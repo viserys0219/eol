@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from modeling.models import Creature
 from django.db.models import Q
+import json
 
 def home_page(request):
     return render(request, "search.html")
@@ -72,5 +73,11 @@ def page(request, num):
                                                     "pages":range(1, int(pages/5)+2),
                                                     "current":int(num),
                                                     "loc":request.GET['locations']})
+
+def auto(request):
+    item_text = request.GET['item_text']
+    response_data = Creature.objects.filter(c_name__startswith=item_text)
+    list1 = [x.c_name for x in response_data]
+    return HttpResponse(json.dumps(list1), content_type="application/json")
 
 
