@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from modeling.models import Creature
 from django.db.models import Q
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 def home_page(request):
     return render(request, "search.html")
@@ -41,6 +42,7 @@ def re_write(request):
     return HttpResponse("<html><title>EOL homepage</title><body>"\
                         "rewrite complete</body></html>")
 
+@csrf_exempt
 def results(request):
     creature = Creature.objects.filter(c_name__icontains=request.POST['item_text'])
     return render(request, "location-detail.html", {"Creature":creature})
