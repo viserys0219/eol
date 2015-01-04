@@ -42,7 +42,7 @@ def re_write(request):
                         "rewrite complete</body></html>")
 
 def results(request):
-    creature = Creature.objects.filter(c_id=request.POST['item_text'])
+    creature = Creature.objects.filter(c_name__icontains=request.POST['item_text'])
     return render(request, "location-detail.html", {"Creature":creature})
 
 def location(request):
