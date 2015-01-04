@@ -8,9 +8,6 @@
 		<script src="{% static "slice.js" %}"></script>
 		<script language="javascript">
 			window.addEventListener('load',doFirst,false);
-			
-				
-		
 			$(document).mousemove(function (e) {
 				x.value = e.pageX + document.documentElement.scrollTop;
 				y.value = e.pageY + document.documentElement.scrollLeft;
@@ -26,7 +23,7 @@
 		<br>
 			X:<input type="text" id="x" size="4"><br>
 			Y:<input type="text" id="y" size="4">
-		<img src="{% static "images/WorldMap.png" %}" id="puzzleImg" />
+		<img src="{% static "images/WorldMap.png" %}" id="puzzleImg"/>
 		<form id="form1" method="POST" action="/location_detail">
 			<input type="hidden" name="locations" id="locations" value="">
 			{% csrf_token %}

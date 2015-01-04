@@ -5,7 +5,7 @@
 		<link rel="stylesheet" href="{% static "search.css" %}"  />
 	</head>
 	<body>
-		<form method="POST" action="results">
+		<form id="search_form" method="POST" action="results">
 			輸入學名: <input class="search_box" name="item_text">
 			{% csrf_token %}
 		</form>

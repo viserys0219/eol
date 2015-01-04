@@ -6,7 +6,8 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 
 def home_page(request):
-    return render(request, "search.html")
+    #return render(request, "search.html")
+    return render(request, "index.html")
 
 def add_to_db(request):
     with open("rewrite.txt") as f:
@@ -82,4 +83,5 @@ def auto(request):
     list1 = [x.c_name for x in response_data]
     return HttpResponse(json.dumps(list1), content_type="application/json")
 
-
+def c_search(request):
+    return render(request, "search.html")
