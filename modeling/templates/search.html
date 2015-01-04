@@ -27,10 +27,18 @@
 					data:{'item_text': $('.search_box').attr('value')},
 					type: 'POST',
 					success: function(data){
+						$('form').after('<div class="search_results"></div>');
 						$('.search_results').html(data);
 						$('.search_results').css('margin-top', '5px');
+						$('.autocomplete-suggestions').css('visibility', 'hidden');
 					}
 				});
+			});
+			$("input[name='item_text']").keydown(function(e){
+				if(e.which != 13){
+					$('.autocomplete-suggestions').css('visibility', 'visible');
+					$('.search_results').remove();
+				}
 			});
 		</script>
 	</body>
