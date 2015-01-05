@@ -11,11 +11,11 @@ class CreatrueModelTest(TestCase):
 
     
     def test_search_results(self):
-        Creature.objects.create(c_id="1052550")
+        Creature.objects.create(c_name="Roach")
         # because in test environment,
         # the test db is empty, so we have to create a record for test
         request = HttpRequest()
         request.method = 'POST'
-        request.POST['item_text'] = "1052550"
+        request.POST['item_text'] = "Roa"
         response = results(request)
-        self.assertIn("1052550", response.content.decode())
+        self.assertIn("Roa", response.content.decode())

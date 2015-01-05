@@ -52,6 +52,7 @@ def location(request):
     return render(request, "slice.html")
 
 def creature_search(loc):
+    # return a creature querySet which lives in seletecd location
     creature = Creature.objects.filter(Q(location__icontains="9999"))
     for i in loc:
         print(Creature.objects.filter(location__icontains=i).count())
@@ -78,6 +79,7 @@ def page(request, num):
                                                     "loc":request.GET['locations']})
 
 def auto(request):
+    # this view is for autocomplete, and it'll return a json
     item_text = request.GET['item_text']
     response_data = Creature.objects.filter(c_name__startswith=item_text)
     list1 = [x.c_name for x in response_data]
