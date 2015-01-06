@@ -11,7 +11,6 @@ def home_page(request):
 
 def add_to_db(request):
     with open("rewrite.txt") as f:
-        f1 = open("temp2.txt", "w")
         for records in f:
             c_id, s_name, c_name, category, iucn_level, level, location,\
                   location_number, location_style = records.strip().split('_')[0:9]
@@ -27,10 +26,8 @@ def add_to_db(request):
                     location_number=location_number,
                     location_style=location_style
                 )
-                f1.write(records)
             except:
                 print("duplicate :", c_id)
-        f1.close()
         return HttpResponse("<html><title>EOL homepage</title><body>insert complete"\
                             "</body></html>")
 
@@ -87,3 +84,6 @@ def auto(request):
 
 def c_search(request):
     return render(request, "search.html")
+
+def location_count(request):
+    return render(request, 'slice_count.html')

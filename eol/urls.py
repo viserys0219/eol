@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^location_detail/(\d{1,3})/$', 'modeling.views.page', name='page'),
     url(r'^auto/$', 'modeling.views.auto', name='auto'),
     url(r'^creature-search', 'modeling.views.c_search', name='c_search'),
+    url(r'^color$', 'modeling.views.location_count', name='color'),
     # Examples:
     # url(r'^$', 'eol.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
