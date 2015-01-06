@@ -29,12 +29,16 @@
 			{% csrf_token %}
 		</form>
 		<script>
-			$.getJSON( "/static/data2.json", function( data ) {
+			$.getJSON( "/static/data3.json", function( data ) {
 				var items = [];
 				$.each( data, function( key, val ) {
     				//items.push( "<li id='" + key + "'>" + val + "</li>" );
-    				if(val>100)
-    				$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:#F00;opacity:0.2"></div>');
+    				if(val<100)
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:#00F;opacity:0.5"></div>');
+    				else if(val<500)
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:#0F0;opacity:0.5"></div>');
+    				else
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:#F00;opacity:0.5"></div>');
   				});
 			});
 		</script>

@@ -1,4 +1,5 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html>
 	<head>
 		<title>EOL homepage</title>
 		{% load staticfiles %}
@@ -6,7 +7,7 @@
 	</head>
 	<body>
 		<form id="search_form" method="POST" action="results">
-			輸入學名: <input class="search_box" name="item_text">
+			一般名稱: <input class="search_box" name="item_text" placeholder="輸入物種一般名稱">
 			{% csrf_token %}
 		</form>
 		<div class="search_results">
