@@ -78,7 +78,7 @@ def page(request, num):
 def auto(request):
     # this view is for autocomplete, and it'll return a json
     item_text = request.GET['item_text']
-    response_data = Creature.objects.filter(c_name__startswith=item_text)
+    response_data = Creature.objects.filter(c_name__icontains=item_text)
     list1 = [x.c_name for x in response_data]
     return HttpResponse(json.dumps(list1), content_type="application/json")
 

@@ -58,7 +58,7 @@ h1,h2,h3 {color: #654;}
 	list-style: none;
 }
 .navigation li a {
-	background: #E8F6BF url(img/bgnavigation.gif) repeat-x;
+	background: #E8F6BF;
 	color: #553;
 	display: block;
 	padding: 8px 4px 8px 12px;
@@ -67,8 +67,4 @@ h1,h2,h3 {color: #654;}
 .navigation li a:hover {
 	background: #F0FFC6;
 	color: #553;
-}
-
-body{
-	//background: #5F8000 url(images/bg.gif) repeat-y center top;
 }
