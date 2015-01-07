@@ -62,8 +62,11 @@ def creature_search(loc):
 def location_detail(request):
     loc = request.POST['locations'].split(',')[:-1]
     creature, pages = creature_search(loc)
+    pages = int(pages/5) + 2
+    if pages % 5 == 0:
+        pages -= 1
     return render(request, "location-detail.html", {"Creature":creature[0:5],
-                                                    "pages":range(1, int(pages/5)+2),
+                                                    "pages":range(1, pages),
                                                     "current":1,
                                                     "loc":request.POST['locations']})
 
@@ -71,8 +74,11 @@ def page(request, num):
     loc = request.GET['locations'].split(',')[:-1]
     creature, pages = creature_search(loc)
     page_start = (int(num) - 1) * 5
+    pages = int(pages/5) + 2
+    if pages % 5 == 0:
+        pages -= 1
     return render(request, "location-detail.html", {"Creature":creature[page_start:page_start+5],
-                                                    "pages":range(1, int(pages/5)+2),
+                                                    "pages":range(1, pages),
                                                     "current":int(num),
                                                     "loc":request.GET['locations']})
 
