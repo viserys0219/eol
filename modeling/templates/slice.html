@@ -33,19 +33,6 @@
 			<input id="btn2" type="submit">
 		</form>
 		<div id="show"></div>
-		<script>
-			$('#form1').submit(function(e){
-				$('#btn1').click();
-				e.preventDefault();
-				//$('#show').html('<object data="color">');
-                //$('#main object').css('width', '1600px').css('height', '1150px');
-                txt = $('#locations').val();
-                $.post("/location_detail",{locations:txt},function(result){
-    				$("#show").html(result);
-  				});
-  				$('#btn2').css('display','none');
-  				$('#to_hide').css('display','none');
-			});
-		</script>
+		<script src="{% static "slice2.js" %}"></script>
 	</body>
 </html>
