@@ -17,12 +17,26 @@
 		<title>WorldMap</title>
 	</head>
 	<body>
-		<div id="showPuzzle"></div>
+		<div id="wrapper">
+			<div id="showPuzzle" style="float:left;"></div>
+			<div id="right" style="float:right;width:520px;">
+				<div style="float:left;width:250px;height:235px;border:1px SeaGreen solid;padding:5px">
+					<div style="width:20px;height:20px;background:Black;opacity:0.5"><p style="margin-left:25px;">Creatures&nbsp;=&nbsp;0</p></div>
+					<div style="width:20px;height:20px;background:Aquamarine;opacity:0.5"><p style="margin-left:25px;">0&nbsp;<&nbsp;Creatures&nbsp;<&nbsp;10</p></div>
+					<div style="width:20px;height:20px;background:LimeGreen;opacity:0.5"><p style="margin-left:25px;">10&nbsp;<=&nbsp;Creatures&nbsp;<&nbsp;100</p></div>
+					<div style="width:20px;height:20px;background:GoldenRod;opacity:0.5"><p style="margin-left:25px;">100&nbsp;<=&nbsp;Creatures&nbsp;<&nbsp;1000</p></div>
+					<div style="width:20px;height:20px;background:PaleVioletRed;opacity:0.5"><p style="margin-left:25px;">1000&nbsp;<=&nbsp;Creatures&nbsp;<&nbsp;3999</p></div>
+					<div style="width:20px;height:20px;background:Crimson;opacity:0.5"><p style="margin-left:25px;">Creatures&nbsp;>=&nbsp;4000</p></div>
+				</div>
+			</div>
+		</div>
 		<br>
-		<input name="send" type="button" value="Send!" onClick="calSum(array)">
-		<br>
+		<div style="display:none;">
+			<input name="send" type="button" value="Send!" onClick="calSum(array)">
+			<br>
 			X:<input type="text" id="x" size="4"><br>
 			Y:<input type="text" id="y" size="4">
+		</div>
 		<img src="{% static "images/WorldMap.png" %}" id="puzzleImg"/>
 		<form id="form1" method="POST" action="/location_detail">
 			<input type="hidden" name="locations" id="locations" value="">
@@ -33,12 +47,18 @@
 				var items = [];
 				$.each( data, function( key, val ) {
     				//items.push( "<li id='" + key + "'>" + val + "</li>" );
-    				if(val<100)
-    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:#00F;opacity:0.5"></div>');
-    				else if(val<500)
-    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:#0F0;opacity:0.5"></div>');
-    				else
-    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:#F00;opacity:0.5"></div>');
+    				if(val<1)
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:Black;opacity:0.5"></div>');
+    				else if(val<10)
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:Aquamarine;opacity:0.5"></div>');
+    				else if(val<100)
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:LimeGreen;opacity:0.5"></div>');
+					else if(val<1000)
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:GoldenRod;opacity:0.5"></div>');
+					else if(val<4000)
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:PaleVioletRed;opacity:0.7"></div>');
+					else
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:Crimson;opacity:0.7"></div>');
   				});
 			});
 		</script>
