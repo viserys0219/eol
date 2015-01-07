@@ -75,9 +75,6 @@ function setTrue(n){
 }
 				
 function calSum(array){
-					
-	//alert("hi");
-					
 	var count = 0;
 	for (i = 0 ; i < 4096 ; i++) {
 		if(array[i]==true){
@@ -87,6 +84,5 @@ function calSum(array){
 	var loc = document.getElementById("locations");
 	loc.setAttribute("value", locations);
 	var form1 = document.getElementById("form1");
-	form1.submit();				
-	
+	form1.submit();
 }
