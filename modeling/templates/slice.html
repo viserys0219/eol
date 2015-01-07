@@ -19,14 +19,33 @@
 	<body>
 		<div id="showPuzzle"></div>
 		<br>
-		<input name="send" type="button" value="Send!" onClick="calSum(array)">
+		<input id="btn1" name="send" type="button" value="Send!" onClick="calSum(array)">
+		<div id="to_hide">
 		<br>
 			X:<input type="text" id="x" size="4"><br>
 			Y:<input type="text" id="y" size="4">
+		</div>
 		<img src="{% static "images/WorldMap.png" %}" id="puzzleImg"/>
 		<form id="form1" method="POST" action="/location_detail">
 			<input type="hidden" name="locations" id="locations" value="">
 			{% csrf_token %}
+			<br>
+			<input id="btn2" type="submit">
 		</form>
+		<div id="show"></div>
+		<script>
+			$('#form1').submit(function(e){
+				$('#btn1').click();
+				e.preventDefault();
+				//$('#show').html('<object data="color">');
+                //$('#main object').css('width', '1600px').css('height', '1150px');
+                txt = $('#locations').val();
+                $.post("/location_detail",{locations:txt},function(result){
+    				$("#show").html(result);
+  				});
+  				$('#btn2').css('display','none');
+  				$('#to_hide').css('display','none');
+			});
+		</script>
 	</body>
 </html>

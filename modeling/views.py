@@ -52,12 +52,13 @@ def creature_search(loc):
     # return a creature querySet which lives in seletecd location
     creature = Creature.objects.filter(Q(location__icontains="9999"))
     for i in loc:
-        print(Creature.objects.filter(location__icontains=i).count())
+        #print(Creature.objects.filter(location__icontains=i).count())
         creature = creature|Creature.objects.filter(location__icontains=i)
         # Use | to combine two QuerySets
     pages = creature.count()
     return creature, pages
 
+@csrf_exempt
 def location_detail(request):
     loc = request.POST['locations'].split(',')[:-1]
     creature, pages = creature_search(loc)

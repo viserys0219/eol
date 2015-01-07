@@ -17,3 +17,7 @@ button{
 	margin:0px auto;
 	font-weight:bold;
 }
+
+#btn1{
+	display:none;
+}

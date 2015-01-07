@@ -51,10 +51,10 @@ function record(){
 	
 	var px = Math.ceil((mx-8)/16);
 	var py = Math.ceil((my-8)/16);
-	alert(px+' , '+py);
+	//alert(px+' , '+py);
 	
 	var n = (py-1) * 64 +px;
-	alert(n);
+	//alert(n);
 	setTrue(n);
 }
 
@@ -83,6 +83,6 @@ function calSum(array){
 	}
 	var loc = document.getElementById("locations");
 	loc.setAttribute("value", locations);
-	var form1 = document.getElementById("form1");
-	form1.submit();
+//	var form1 = document.getElementById("form1");
+//	form1.submit();
 }
