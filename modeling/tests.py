@@ -1,7 +1,7 @@
 from django.test import TestCase
 from modeling.models import Creature
 from django.http import HttpRequest
-from modeling.views import results
+from modeling.views import *
 
 class CreatrueModelTest(TestCase):
     def test_retrieving_items(self):
@@ -19,3 +19,23 @@ class CreatrueModelTest(TestCase):
         request.POST['item_text'] = "Roa"
         response = results(request)
         self.assertIn("Roa", response.content.decode())
+
+    def test_creature_search(self):
+        Creature.objects.create(c_name="Roach", location="3333")
+        creature, pages = creature_search(['3333'])
+        self.assertEqual(pages, 1)
+        self.assertEqual('Roach', creature[0].c_name)
+
+    def test_location_detail(self):
+        Creature.objects.create(c_name="Roach", location="3333")
+        Creature.objects.create(c_name="Python", location="2222", c_id="09852")
+        response = self.client.post(
+            '/location_detail',
+            data={'locations': '2222,3333,'}
+        )
+        self.assertIn('Roach', response.content.decode())
+        self.assertIn('Python', response.content.decode())
+
+    def test_page(self):
+        Creature.objects.create(c_name="Roach", location="3333")
+        Creature.objects.create(c_name="Python", location="2222", c_id="09852")
