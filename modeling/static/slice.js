@@ -36,12 +36,15 @@ for(var i=0;i<puzzleX;i++){
 			$(this).css('opacity', 1);
 			//$(this).html('<div style="width:16px;height:16px;background:#F00;opacity:0.2"></div>');
 			record();
-		});
- 
-		// �� _span �[�� #showPuzzle ��
+		})
+
 		$('#showPuzzle').append(_span);
 	}
 }
+
+
+
+
 });
 
 function record(){

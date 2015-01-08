@@ -51,17 +51,17 @@
 				$.each( data, function( key, val ) {
     				//items.push( "<li id='" + key + "'>" + val + "</li>" );
     				if(val<1)
-    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:Black;opacity:0.5"></div>');
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:Black;opacity:0.3"></div>');
     				else if(val<10)
-    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:Aquamarine;opacity:0.5"></div>');
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:Aquamarine;opacity:0.3"></div>');
     				else if(val<100)
-    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:LimeGreen;opacity:0.5"></div>');
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:LimeGreen;opacity:0.3"></div>');
 					else if(val<1000)
-    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:GoldenRod;opacity:0.5"></div>');
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:GoldenRod;opacity:0.3"></div>');
 					else if(val<4000)
-    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:PaleVioletRed;opacity:0.7"></div>');
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:PaleVioletRed;opacity:0.3"></div>');
 					else
-    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:Crimson;opacity:0.7"></div>');
+    					$('#showPuzzle span').eq(parseInt(key)).append('<div style="width:16px;height:16px;background:Crimson;opacity:0.5"></div>');
   				});
 			});
 		</script>
