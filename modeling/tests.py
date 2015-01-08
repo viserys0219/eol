@@ -37,5 +37,16 @@ class CreatrueModelTest(TestCase):
         self.assertIn('Python', response.content.decode())
 
     def test_page(self):
-        Creature.objects.create(c_name="Roach", location="3333")
-        Creature.objects.create(c_name="Python", location="2222", c_id="09852")
+        for i in range(15):
+            Creature.objects.create(c_name="Roach"+str(i), c_id=str(i), location="3333")
+        response = self.client.get('/location_detail/3/',{'locations':'3333,'})
+        self.assertIn("<td><b>3</b></td>", response.content.decode())
+
+    def test_auto(self):
+        Creature.objects.create(c_name="Children's Python", c_id="1111")
+        Creature.objects.create(c_name="Pygmy Python", c_id="1112")
+        request = HttpRequest()
+        request.method = "GET"
+        request.GET['item_text'] = "Python"
+        response = auto(request).content.decode()
+        self.assertIn('Pygmy Python', response)
