@@ -17,6 +17,8 @@
 		<title>WorldMap</title>
 	</head>
 	<body>
+
+	<div id="wrapper">
 		<div id="showPuzzle"></div>
 		<br>
 		<input id="btn1" name="send" type="button" value="Send!" onClick="calSum(array)">
@@ -41,5 +43,7 @@
 		{% if eva == 'on' %}
 		<script src="{% static "slice3.js" %}"></script>
 		{% endif %}
+
+		</div>
 	</body>
 </html>

@@ -109,4 +109,5 @@ def evaluate_output(request):
         for i in loc:
             print(point_list[int(i)],int(i))
             level += point_list[int(i)] / len(loc)
-    return HttpResponse('<html><body>'+str(level)+'</body></html>')
+    #return HttpResponse('<html><body>'+str(level)+'</body></html>')
+    return render(request, 'point.html', {'level':level})
