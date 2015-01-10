@@ -22,28 +22,26 @@ for(var i=0;i<puzzleX;i++){
 		var _posLeft = Math.round(-i * picW)+'px', 
 			_posTop = Math.round(-j * picH)+'px';
 
-		var _span = $('<span />').css({
-			position: 'absolute',
-			overflow: 'hidden',
-			width: picW - 1,
-			height: picH - 1,
-			left: i * picW + 1,
-			top: j * picH + 1,
-			backgroundImage: 'url(' + puzzleImgSrc + ')',
-			backgroundPosition: _posLeft + ' ' + _posTop,
-			opacity: 0.6
-		}).click(function(){
-			$(this).css('opacity', 1);
-			//$(this).html('<div style="width:16px;height:16px;background:#F00;opacity:0.2"></div>');
-			record();
-		})
+			var _span = $('<span />').css({
+				position: 'absolute',
+				overflow: 'hidden',
+				width: picW - 1,
+				height: picH - 1,
+				left: i * picW + 1,
+				top: j * picH + 1,
+				backgroundImage: 'url(' + puzzleImgSrc + ')',
+				backgroundPosition: _posLeft + ' ' + _posTop,
+				opacity: 0.6
+			}).click(function(){
+				$(this).css('opacity', 1);
+				//$(this).html('<div style="width:16px;height:16px;background:#F00;opacity:0.2"></div>');
+				record();
+			})
+
 
 		$('#showPuzzle').append(_span);
 	}
 }
-
-
-
 
 });
 

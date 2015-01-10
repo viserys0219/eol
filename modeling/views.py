@@ -111,3 +111,10 @@ def evaluate_output(request):
             level += point_list[int(i)] / len(loc)
     #return HttpResponse('<html><body>'+str(level)+'</body></html>')
     return render(request, 'point.html', {'level':level})
+
+@csrf_exempt
+def show_loc(request, c_id):
+    c = Creature.objects.filter(c_id=c_id)[0]
+    loc = c.location.strip().split(',')[:-1]
+    # return HttpResponse(json.dumps(loc), content_type="application/json")
+    return render(request, 'slice.html', {'loc':loc})

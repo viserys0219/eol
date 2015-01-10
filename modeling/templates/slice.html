@@ -17,7 +17,6 @@
 		<title>WorldMap</title>
 	</head>
 	<body>
-
 	<div id="wrapper">
 		<div id="showPuzzle"></div>
 		<br>
@@ -34,6 +33,7 @@
 			<br>
 			<input id="btn2" type="submit">
 		</form>
+		<input id="btn3" type="button">
 		{% if eva == 'on' %}
 		{% endif %}
 		<div id="show"></div>
@@ -45,5 +45,23 @@
 		{% endif %}
 
 		</div>
+		<script>
+			var array1 = [];
+			{% for l in loc %}
+			array1.push({{ l }});
+			{% endfor %}
+
+			$('#btn3').on('click',function(){
+				for(var i=0; i<4096; i++){
+					if(array1.indexOf(i) != -1){
+						$('#showPuzzle span').eq(i).css('opacity',1);
+					}
+				}
+			});
+
+			setTimeout(function (){
+				$('#btn3').click();
+			}, 1500);
+		</script>
 	</body>
 </html>
