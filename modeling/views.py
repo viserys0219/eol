@@ -94,3 +94,19 @@ def c_search(request):
 
 def location_count(request):
     return render(request, 'slice_count.html')
+
+def evaluate(request):
+    return render(request, 'slice.html', {'eva':'on'})
+
+@csrf_exempt
+def evaluate_output(request):
+    loc = request.POST['locations'].split(',')[:-1]
+    level = 0
+    point_list = []
+    with open('Model7_placeScores.txt') as f:
+        for i in f:
+            point_list.append(float(i.strip()))
+        for i in loc:
+            print(point_list[int(i)],int(i))
+            level += point_list[int(i)] / len(loc)
+    return HttpResponse('<html><body>'+str(level)+'</body></html>')

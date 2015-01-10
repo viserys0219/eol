@@ -57,7 +57,7 @@ function record(){
 	//alert(px+' , '+py);
 	
 	var n = (py-1) * 64 +px;
-	//alert(n);
+	alert(n);
 	setTrue(n);
 }
 

@@ -32,7 +32,14 @@
 			<br>
 			<input id="btn2" type="submit">
 		</form>
+		{% if eva == 'on' %}
+		{% endif %}
 		<div id="show"></div>
+		{% if eva != 'on' %}
 		<script src="{% static "slice2.js" %}"></script>
+		{% endif %}
+		{% if eva == 'on' %}
+		<script src="{% static "slice3.js" %}"></script>
+		{% endif %}
 	</body>
 </html>

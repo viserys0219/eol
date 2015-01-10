@@ -12,3 +12,8 @@ $('#loc_count').on('click', function(e){
     $('#main').html('<object data="color">');
     $('#main object').css('width', '1600px').css('height', '1150px');
 });
+$('#eva').on('click', function(e){
+    e.preventDefault();
+    $('#main').html('<object data="evaluate">');
+    $('#main object').css('width', '1600px').css('height', '1150px');
+});
