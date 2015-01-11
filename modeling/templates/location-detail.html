@@ -74,7 +74,8 @@
 		});
 
 		$('.c_id a').on('click', function(e){
-			e.preventDefault();
+			if($('#main').length != 0)
+				e.preventDefault();
 			x = e.target.getAttribute("href");
 			$('#main').html('<object data='+ x +'>');
     		$('#main object').css('width', '1050px').css('height', '1650px');

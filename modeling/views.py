@@ -116,5 +116,10 @@ def evaluate_output(request):
 def show_loc(request, c_id):
     c = Creature.objects.filter(c_id=c_id)[0]
     loc = c.location.strip().split(',')[:-1]
+    loc_t = []
+    for i in loc:
+        x = int(i) // 64
+        y = int(i) % 64
+        loc_t.append(str(y*64+x))
     # return HttpResponse(json.dumps(loc), content_type="application/json")
-    return render(request, 'slice.html', {'loc':loc})
+    return render(request, 'slice.html', {'loc':loc_t})
