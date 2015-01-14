@@ -123,3 +123,6 @@ def show_loc(request, c_id):
         loc_t.append(str(y*64+x))
     # return HttpResponse(json.dumps(loc), content_type="application/json")
     return render(request, 'slice.html', {'loc':loc_t})
+
+def parameter_count(request):
+    return render(request, 'parameter_count.html')

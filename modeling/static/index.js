@@ -17,3 +17,8 @@ $('#eva').on('click', function(e){
     $('#main').html('<object data="evaluate">');
     $('#main object').css('width', '1600px').css('height', '1150px');
 });
+$('#parameter').on('click', function(e){
+    e.preventDefault();
+    $('#main').html('<object data="parameter">');
+    $('#main object').css('width', '1600px').css('height', '1150px');
+});

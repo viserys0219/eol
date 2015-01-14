@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^evaluate$', 'modeling.views.evaluate', name='evaluate'),
     url(r'^evaluate_output$', 'modeling.views.evaluate_output', name='evaluate_output'),
     url(r'^show/(\d{1,})$', 'modeling.views.show_loc', name='show_loc'),
+    url(r'^parameter$', 'modeling.views.parameter_count', name='parameter'),
     # Examples:
     # url(r'^$', 'eol.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
